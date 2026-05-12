@@ -78,11 +78,11 @@
     },
     {
       "name": "quality",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "space-age",
-      "enabled": false
+      "enabled": true
     }
   ]
 }

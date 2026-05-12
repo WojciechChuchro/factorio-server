@@ -10,18 +10,18 @@ services:
     volumes:
       - ./data:/factorio
     environment:
-      - LOAD_LATEST_SAVE=true
-      - GENERATE_NEW_SAVE=true
-      - SAVE_NAME=koks
-      - TOKEN=${FACTORIO_TOKEN:-}         # Your factorio.com token (optional, for public listing)
-      - USERNAME=${FACTORIO_USERNAME:-}   # Your factorio.com username (optional)
+      - LOAD_LATEST_SAVE=${LOAD_LATEST_SAVE}
+      - GENERATE_NEW_SAVE=${GENERATE_NEW_SAVE}
+      - SAVE_NAME=${SAVE_NAME}
+      - TOKEN=${FACTORIO_TOKEN}
+      - USERNAME=${FACTORIO_USERNAME}
       # NOTE: the image does NOT read a PASSWORD env var.
       # Set the join password via "game_password" in data/config/server-settings.json.
-      - RCON_PORT=27015
-      - RCON_PASSWORD=${RCON_PASSWORD:-changeme}
-      - DLC_SPACE_AGE=false
-      - DLC_QUALITY=false
-      - DLC_ELEVATED_RAILS=false
+      - RCON_PORT=${RCON_PORT}
+      - RCON_PASSWORD=${RCON_PASSWORD}
+      - DLC_SPACE_AGE=${DLC_SPACE_AGE}
+      - DLC_QUALITY=${DLC_QUALITY}
+      - DLC_ELEVATED_RAILS=${DLC_ELEVATED_RAILS}
     mem_limit: 2g
     cpus: "2.0"
 
@@ -36,10 +36,10 @@ services:
     environment:
       - RWA_SERVER_NAME=Factorio RCON
       - RWA_ADMIN=true
-      - RWA_PASSWORD=${RCON_WEB_PASSWORD:-admin}
+      - RWA_PASSWORD=${RCON_WEB_PASSWORD}
       - RWA_RCON_HOST=factorio
-      - RWA_RCON_PORT=27015
-      - RWA_RCON_PASSWORD=${RCON_PASSWORD:-admin}
+      - RWA_RCON_PORT=${RCON_PORT}
+      - RWA_RCON_PASSWORD=${RCON_PASSWORD}
     depends_on:
       - factorio
     profiles:
