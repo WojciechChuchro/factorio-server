@@ -1,0 +1,88 @@
+{
+  "mods": [
+    {
+      "name": "base",
+      "enabled": true
+    },
+    {
+      "name": "AmmoAlerts",
+      "enabled": true
+    },
+    {
+      "name": "AutoDeconstruct",
+      "enabled": true
+    },
+    {
+      "name": "AutoResearch_Continued",
+      "enabled": true
+    },
+    {
+      "name": "BottleneckLite",
+      "enabled": true
+    },
+    {
+      "name": "BulletTrails",
+      "enabled": true
+    },
+    {
+      "name": "DiscoScience",
+      "enabled": true
+    },
+    {
+      "name": "even-distribution",
+      "enabled": true
+    },
+    {
+      "name": "flib",
+      "enabled": true
+    },
+    {
+      "name": "factoryplanner",
+      "enabled": true
+    },
+    {
+      "name": "LightedElectricPoles+",
+      "enabled": true
+    },
+    {
+      "name": "more-descriptions",
+      "enabled": true
+    },
+    {
+      "name": "QueueToFrontLimited",
+      "enabled": true
+    },
+    {
+      "name": "RateCalculator",
+      "enabled": true
+    },
+    {
+      "name": "ResourceLabels",
+      "enabled": true
+    },
+    {
+      "name": "textplates",
+      "enabled": true
+    },
+    {
+      "name": "TLBE",
+      "enabled": true
+    },
+    {
+      "name": "VehicleSnap",
+      "enabled": true
+    },
+    {
+      "name": "elevated-rails",
+      "enabled": false
+    },
+    {
+      "name": "quality",
+      "enabled": false
+    },
+    {
+      "name": "space-age",
+      "enabled": false
+    }
+  ]
+}

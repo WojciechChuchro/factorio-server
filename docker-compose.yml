@@ -1,0 +1,46 @@
+# https://hub.docker.com/r/factoriotools/factorio
+services:
+  factorio:
+    image: factoriotools/factorio:stable
+    container_name: factorio-server
+    restart: unless-stopped
+    ports:
+      - "34197:34197/udp"   # Game port
+      - "27015:27015/tcp"   # RCON port (optional, for remote console)
+    volumes:
+      - ./data:/factorio
+    environment:
+      - LOAD_LATEST_SAVE=true
+      - GENERATE_NEW_SAVE=true
+      - SAVE_NAME=koks
+      - TOKEN=${FACTORIO_TOKEN:-}         # Your factorio.com token (optional, for public listing)
+      - USERNAME=${FACTORIO_USERNAME:-}   # Your factorio.com username (optional)
+      # NOTE: the image does NOT read a PASSWORD env var.
+      # Set the join password via "game_password" in data/config/server-settings.json.
+      - RCON_PORT=27015
+      - RCON_PASSWORD=${RCON_PASSWORD:-changeme}
+      - DLC_SPACE_AGE=false
+      - DLC_QUALITY=false
+      - DLC_ELEVATED_RAILS=false
+    mem_limit: 2g
+    cpus: "2.0"
+
+  # Optional: RCON web UI for server management
+  rcon-web:
+    image: itzg/rcon:latest
+    container_name: factorio-rcon-ui
+    restart: unless-stopped
+    ports:
+      - "4326:4326"   # Web UI
+      - "4327:4327"   # WebSocket
+    environment:
+      - RWA_SERVER_NAME=Factorio RCON
+      - RWA_ADMIN=true
+      - RWA_PASSWORD=${RCON_WEB_PASSWORD:-admin}
+      - RWA_RCON_HOST=factorio
+      - RWA_RCON_PORT=27015
+      - RWA_RCON_PASSWORD=${RCON_PASSWORD:-admin}
+    depends_on:
+      - factorio
+    profiles:
+      - rcon   # Only start with: docker compose --profile rcon up
